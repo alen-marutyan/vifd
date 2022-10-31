@@ -6,6 +6,7 @@ const http = require("http");
 const indexRouter = require('./routes/index');
 
 const app = express();
+const PORT = process.env.PORT || 5000
 const server = http.createServer(app)
 
 app.use(logger('dev'));
@@ -15,6 +16,4 @@ app.use(express.static(path.join(__dirname, 'static')));
 
 app.use('/', indexRouter);
 
-server.listen(5050, ()=>{
-    console.log('Start server http://localhost:5050/')
-});
+server.listen(PORT)
